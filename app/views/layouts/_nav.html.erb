@@ -1,11 +1,9 @@
-<table>
-  <tr>
-    <td><%= link_to "View Licenses", licenses_path %></td>
-    <td><%= link_to "View Assets", machines_path %></td>
-    <% if current_user.admin? %>
-      <td><%= link_to "Administer Licenses", licenses_path %></td>
-      <td><%= link_to "Administer Assets", machines_path %></td>
-      <td><%= link_to "Administer Users", licenses_path %></td>
-    <% end %>
-  </tr>
-</table>
+<ul class='nav'>
+<li><%= link_to "Log Out #{current_user.name}", logout_path %></li>
+<li><%= link_to "View Licenses", licenses_path %></li>
+<li><%= link_to "View Assets", machines_path %></li>
+<% if current_user.admin? %>
+  <li><%= link_to "Administer Licenses", licenses_path %></li>
+  <li><%= link_to "Administer Assets", machines_path %></li>
+  <li><%= link_to "Administer Users", licenses_path %></li>
+<% end %>
