@@ -5,10 +5,14 @@ class License < ActiveRecord::Base
 
   def remaining
     if capacity > 0
-      capacity - active_licenses.count
+      capacity - used_count
     else
       999
     end
+  end
+
+  def used_count
+    active_licenses.count
   end
 
 end

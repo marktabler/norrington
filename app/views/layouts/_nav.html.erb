@@ -1,1 +1,11 @@
-<%= link_to "View Licenses", licenses_path %> | <%= link_to "View Assets", machines_path %>
+<table>
+  <tr>
+    <td><%= link_to "View Licenses", licenses_path %></td>
+    <td><%= link_to "View Assets", machines_path %></td>
+    <% if current_user.admin? %>
+      <td><%= link_to "Administer Licenses", licenses_path %></td>
+      <td><%= link_to "Administer Assets", machines_path %></td>
+      <td><%= link_to "Administer Users", licenses_path %></td>
+    <% end %>
+  </tr>
+</table>

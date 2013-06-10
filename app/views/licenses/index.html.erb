@@ -1,1 +1,17 @@
 <h2>Licenses</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Total</th>
+    <th>Used</th>
+    <th>Remaining</th>
+  </tr>
+  <% License.all.each do |license| %>
+  <tr>
+    <td><%= license.name %></td>
+    <td><%= license.capacity %></td>
+    <td><%= license.used_count %></td>
+    <td><%= license.remaining %></td>
+  </tr>
+  <% end %>
+</table>
