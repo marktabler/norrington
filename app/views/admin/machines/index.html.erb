@@ -1,0 +1,21 @@
+<h2>Administer Assets</h2>
+<h4>Create</h4>
+<%= form_for Machine.new, url: admin_machines_path, method: :post do |f| %>
+  <%= f.label :barcode %>
+  <%= f.text_field :barcode %>
+  <%= f.submit %>
+<% end %>
+<h4>Manage</h4>
+<hr>
+<table class="table">
+  <tr>
+    <th>Barcode</th>
+    <th>Delete</th>
+  </tr>
+  <% Machine.all.each do |machine| %>
+  <tr>
+    <td><%= link_to machine.barcode, machine_path(machine) %></td>
+    <td><%= link_to "Delete", admin_machine_path(machine), method: :delete, data: { confirm: "Delete #{machine.barcode} and all installation records? This action cannot be undone."} %></td>
+  </tr>
+  <% end %>
+</table>

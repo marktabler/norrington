@@ -1,0 +1,15 @@
+<%= form_for @user, url: admin_user_path(@user), method: :put do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :pincode, "Pin" %>
+  <%= f.text_field :pincode %>
+  <%= f.submit %>
+<% end %>
+
+<% unless @user == current_user %>
+  <% if @user.admin? %>
+    <%= button_to "Demote", admin_demote_user_path(@user), method: :post %>
+  <% else %>
+    <%= button_to "Promote", admin_promote_user_path(@user), method: :post %>
+  <% end %>
+<% end %>

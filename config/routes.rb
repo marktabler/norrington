@@ -3,6 +3,8 @@ Norrington::Application.routes.draw do
   post '/login' => 'sessions#create'
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
+  post '/admin/promote/:id' => 'admin/users#promote', as: "admin_promote_user"
+  post '/admin/demote/:id' => 'admin/users#demote', as: "admin_demote_user"
 
   get '/machines/search' => 'machines#search', as: 'machine_search'
 

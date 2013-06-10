@@ -3,6 +3,8 @@ class Machine < ActiveRecord::Base
   has_many :active_licenses, dependent: :destroy
   has_many :licenses, through: :active_licenses
 
+  default_scope { order("barcode ASC") }
+
   def install(license)
     active_licenses.create(license_id: license.id)
   end

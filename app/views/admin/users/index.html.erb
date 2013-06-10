@@ -1,0 +1,27 @@
+<h2>Administer Users</h2>
+<h4>Create</h4>
+<%= form_for User.new, url: admin_users_path, method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :pincode, "Pin" %>
+  <%= f.text_field :pincode %>
+  <%= f.submit %>
+<% end %>
+<h4>Manage</h4>
+<hr>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Pin</th>
+    <th>Admin<th>
+    <th>Delete</th>
+  </tr>
+  <% User.all.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, edit_admin_user_path(user) %></td>
+    <td><%= user.pincode %></td>
+    <td><%= user.admin? ? "Yes" : "No" %></td>
+    <td><%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Delete #{user.name}? This action cannot be undone."} %></td>
+  </tr>
+  <% end %>
+</table>

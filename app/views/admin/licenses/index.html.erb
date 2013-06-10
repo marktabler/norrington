@@ -1,5 +1,15 @@
 <h2>Administer Licenses</h2>
-<table>
+<h4>Create</h4>
+<%= form_for License.new, url: admin_licenses_path, method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :capacity %>
+  <%= f.text_field :capacity %>
+  <%= f.submit %>
+<% end %>
+<h4>Manage</h4>
+<hr>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Total</th>

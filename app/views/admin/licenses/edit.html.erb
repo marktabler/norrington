@@ -5,3 +5,11 @@
   <%= f.text_field :capacity %>
   <%= f.submit %>
 <% end %>
+
+<hr>
+<h4>Installed on:</h4>
+<ul>
+  <% @license.machines.each do |machine| %>
+  <%= link_to machine.barcode, machine_path(machine) %>
+  <% end %>
+</ul>

@@ -12,6 +12,17 @@ class Admin::LicensesController < ApplicationController
     return redirect_to admin_licenses_path
   end
 
+  def create
+    @license = License.create(license_params)
+    return redirect_to admin_licenses_path
+  end
+
+  def destroy
+    @license = License.find(params[:id])
+    @license.destroy
+    return redirect_to admin_licenses_path
+  end
+  
   private
 
   def license_params
