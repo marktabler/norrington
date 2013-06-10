@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    @user.destroy unless @user == current_user
     return redirect_to admin_users_path
   end
   
