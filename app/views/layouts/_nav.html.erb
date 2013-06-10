@@ -1,5 +1,5 @@
 <ul class='nav'>
-<li><%= link_to "Log Out #{current_user.name}", logout_path %></li>
+<li><%= link_to "Log Out #{current_user.name}", logout_path, method: :delete %></li>
 <li><%= link_to "View Licenses", licenses_path %></li>
 <li><%= link_to "View Assets", machines_path %></li>
 <% if current_user.admin? %>

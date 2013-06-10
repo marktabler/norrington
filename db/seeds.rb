@@ -8,6 +8,7 @@
 
 u = User.create(name: "Luchtman", pincode: "100214")
 u.update_attribute(:admin, true)
+t = User.create(name: "Tabler", pincode: "2221222")
 
 m = Machine.create(barcode: "0000")
 l = License.create(name: "Norrington")
