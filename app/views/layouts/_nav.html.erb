@@ -3,7 +3,7 @@
 <li><%= link_to "View Licenses", licenses_path %></li>
 <li><%= link_to "View Assets", machines_path %></li>
 <% if current_user.admin? %>
-  <li><%= link_to "Administer Licenses", licenses_path %></li>
-  <li><%= link_to "Administer Assets", machines_path %></li>
-  <li><%= link_to "Administer Users", licenses_path %></li>
+  <li><%= link_to "Administer Licenses", admin_licenses_path %></li>
+  <li><%= link_to "Administer Assets", admin_machines_path %></li>
+  <li><%= link_to "Administer Users", admin_users_path %></li>
 <% end %>

@@ -1,0 +1,19 @@
+<h2>Administer Licenses</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Total</th>
+    <th>Used</th>
+    <th>Remaining</th>
+    <th>Delete</th>
+  </tr>
+  <% License.all.each do |license| %>
+  <tr>
+    <td><%= link_to license.name, edit_admin_license_path(license) %></td>
+    <td><%= license.capacity %></td>
+    <td><%= license.used_count %></td>
+    <td><%= license.remaining %></td>
+    <td><%= link_to "Delete", admin_license_path(license), method: :delete, data: { confirm: "Delete #{license.name} and all installation records? This action cannot be undone."} %></td>
+  </tr>
+  <% end %>
+</table>
