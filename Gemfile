@@ -34,6 +34,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'mysql2'
+
 group :development, :test do
   gem 'sqlite3'
 end
