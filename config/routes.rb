@@ -1,4 +1,14 @@
 Norrington::Application.routes.draw do
+  
+  post '/login' => 'sessions#create'
+  get '/login' => 'sessions#new'
+  delete '/logout' => 'sessions#destroy'
+
+  get '/machines/search' => 'machines#search', as: 'machine_search'
+
+  delete '/uninstall/:id' => 'licenses#uninstall', as: "uninstall"
+  post '/install' => 'licenses#install', as: "install"
+
   resources :licenses
 
   resources :users

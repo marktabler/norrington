@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if current_user %>
+  <h3>Signed in as <%= current_user.name %> | <%= link_to 'Sign out', '/logout', method: :delete %></h3>
+  <%= render partial: 'layouts/nav' %>
+  <br><br>
+<% end %>
 <%= yield %>
 
 </body>

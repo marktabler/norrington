@@ -1,0 +1,24 @@
+<h4>Asset ID <%= @machine.barcode %></h4>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Remove</th>
+  </tr>
+  <% @machine.active_licenses.each do |active_license| %>
+    <tr>
+      <td><%= active_license.name %></td>
+      <td><%= button_to "Uninstall", uninstall_path(active_license), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Install</h4>
+<%= form_tag install_path, method: :post do %>
+  <%= select_tag :license_id, install_options(@machine)%>
+  <%= hidden_field_tag :machine_id, @machine.id %>
+  <%= submit_tag "Install" %>
+<% end %>
+
+<hr>
+<h4>New Search</h4>
+<%= render partial: 'search' %>

@@ -1,0 +1,5 @@
+<%= form_tag '/login', method: :post do %>
+  <%= label_tag :pincode %>
+  <%= text_field_tag :pincode %>
+  <%= submit_tag "Log in" %>
+<% end %>
